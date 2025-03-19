@@ -56,4 +56,7 @@ Verification that the app is working properly on local
 
 ---
 
+## Personal bonus
+
+I completed an additional exercise. I deployed the Docker image created within the pipeline to a Kubernetes cluster hosted on Minikube. The application is hosted in a deployment consisting of a single replica, which is attached to a NodePort service to make it accessible from outside the local cluster.
 
