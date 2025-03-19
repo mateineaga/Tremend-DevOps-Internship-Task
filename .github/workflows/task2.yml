@@ -22,7 +22,7 @@ jobs:
       run: |
           export SHELL=/bin/bash
           eval $(minikube -p minikube docker-env)
-          docker build -f ./Dockerfile -t tremend-task2:latest .
+          docker build -f ./Task 2 - Docker pipeline/Dockerfile -t tremend-task2:latest .
           echo -n "verifying images:"
           docker images         
     
@@ -50,7 +50,3 @@ jobs:
           docker images   
           echo -n "Pushing the image!"
           docker push mateineaga10/tremend-task-2:${GITHUB_SHA}
-
-
-
-    
