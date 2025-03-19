@@ -1,0 +1,56 @@
+name: Deploy Docker image to Dockerhub using GitHub Actions - Neaga Matei - Task2
+
+on: [push]
+  
+jobs:
+  job1:
+
+    runs-on: ubuntu-latest
+    
+    name: build Node.js Docker Image and deploy to it to dockerhub and minikube
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Starting minikube
+      uses: medyagh/setup-minikube@master
+    
+    - name: Testing the cluster 
+      run: kubectl get pods -A
+    
+    - name: Build image
+      run: |
+          export SHELL=/bin/bash
+          eval $(minikube -p minikube docker-env)
+          docker build -f ./Dockerfile -t tremend-task2:latest .
+          echo -n "verifying images:"
+          docker images         
+    
+    - name: Deploy to minikube
+      run: |
+        kubectl apply -f k8s-node-app.yaml
+        POD_STATUS=$(kubectl get pods -n default -o jsonpath="{.items[0].status.phase}")
+        while [ "$POD_STATUS" != "Running" ]; do
+          echo "Waiting for pod to become Running..."
+          sleep 10
+          POD_STATUS=$(kubectl get pods -n default -o jsonpath="{.items[0].status.phase}")
+        done
+        echo "Pod is now Running!" 
+
+    - name: Testing the app deployed on our minikube cluster
+      run: |
+         kubectl get pods
+         echo "Testing the service:"
+         curl localhost:8080
+
+    - name: Tagging the image & pushing the image
+      run: |
+          docker tag tremend-task2 mateineaga10/tremend-task-2:${GITHUB_SHA}
+          echo -n "Verifying the tagged images:"
+          docker images   
+          echo -n "Pushing the image!"
+          docker push mateineaga10/tremend-task-2:${GITHUB_SHA}
+
+
+
+    

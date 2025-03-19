@@ -1,1 +1,0 @@
-# Tremend-DevOps-Internship-Task
