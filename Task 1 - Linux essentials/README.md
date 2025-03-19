@@ -26,7 +26,6 @@ Verify:
     ;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
     ;; WHEN: Tue Mar 18 21:00:55 UTC 2025
     ;; MSG SIZE  rcvd: 75
-
     '''
 
 
@@ -62,6 +61,7 @@ Connection to google-dns (8.8.8.8) 53 port [tcp/domain] succeeded!
     results.
 
     Results: 
+
     '''
     root@ubuntu-jammy:/etc/bind# root@ubuntu-jammy:/etc/bind# dig cloudflare.com
 
@@ -84,7 +84,6 @@ Connection to google-dns (8.8.8.8) 53 port [tcp/domain] succeeded!
     ;; SERVER: 8.8.8.8#53(8.8.8.8) (UDP)
     ;; WHEN: Wed Mar 19 09:03:45 UTC 2025
     ;; MSG SIZE  rcvd: 75 
-
     '''
 
 
@@ -184,3 +183,9 @@ Approach used: I modified the HTML file from /var/www/html, now being structured
 
 Verify:
     ![Nginx webpage modified](results/nginx.png)
+
+Personal bonus:
+    I did this task on a ubuntu VM, hosted on vagrant. I added a portforward config to the vagrant file to allow me to use localhost from local, with the command:
+    '''
+    config.vm.network "forwarded_port", guest: 8080, host: 80
+    '''
