@@ -45,8 +45,8 @@ jobs:
 
     - name: Tagging the image & pushing the image
       run: |
-          docker tag tremend-task2 mateineaga10/tremend-task-2:${GITHUB_SHA}
+          docker tag tremend-task2 mateineaga10/tremend-task2:${GITHUB_SHA}
           echo -n "Verifying the tagged images:"
           docker images   
           echo -n "Pushing the image!"
-          docker push mateineaga10/tremend-task-2:${GITHUB_SHA}
+          docker push mateineaga10/tremend-task2:${GITHUB_SHA}
