@@ -56,15 +56,13 @@ Connection to google-dns (8.8.8.8) 53 port [tcp/domain] succeeded!
 ---
 
 ## 4. Modify the System to Use Google’s Public DNS:
-    4.1) Change the nameserver to 8.8.8.8 instead of the default local
-    configuration.
+### 4.1. Change the nameserver to 8.8.8.8 instead of the default local configuration.
 
     Approach used: I modified the line from file /etc/resolv.conf from "localhost 127.0.0.53" to "8.8.8.8".
 
     
 
-    4.2) Perform another public IP lookup for cloudflare.com and compare the
-    results.
+### 4.2. Perform another public IP lookup for cloudflare.com and compare the results.
 
     Results: 
 
@@ -150,16 +148,9 @@ Conclusion: NGINX listens on port 80
 
 --- 
 
-## Bonus / Nice to Have:
+## Bonus / Nice to Have
 ## 7. Change the Nginx Listening port to 8080
-Approach used: I modified the file from /etc/nginx/sites-enabled/default. I edited the lines from
-```
-    server {
-            listen 80 default_server;
-            listen [::]:80 default_server;
-```
-
-    to
+Approach used: I modified the file from /etc/nginx/sites-enabled/default. I edited the server lines, final result being
 
 ```
     server {
@@ -167,7 +158,7 @@ Approach used: I modified the file from /etc/nginx/sites-enabled/default. I edit
             listen [::]:8080 default_server;
 ```
 
-    Verify:
+Verify:
 ```
     root@ubuntu-jammy:/etc/nginx/sites-enabled# sudo service nginx restart
 
@@ -176,7 +167,7 @@ Approach used: I modified the file from /etc/nginx/sites-enabled/default. I edit
     tcp6       0      0 :::8080                 :::*                    LISTEN      3212/nginx: master
 ```
 
-    As we can see, the nginx service listens on port 8080.
+As we can see, the nginx service listens on port 8080.
 
 ---
 
@@ -199,7 +190,9 @@ Verify:
 ---
 
 ## Personal bonus:
-    I did this task on a ubuntu VM, hosted on vagrant. I added a portforward config to the vagrant file to allow me to use localhost from local, with the command:
+
+I did this task on a ubuntu VM, hosted on vagrant. To allow access from localhost on my local machine, I added the following port forwarding configuration in the Vagrantfile:
+
 ```
-    config.vm.network "forwarded_port", guest: 8080, host: 80
+config.vm.network "forwarded_port", guest: 8080, host: 80
 ```
