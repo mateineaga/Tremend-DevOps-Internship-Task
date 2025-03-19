@@ -1,13 +1,15 @@
 FROM node:19-bullseye
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 COPY package*.json ./
-
-EXPOSE 8080
 
 RUN npm install
 
 RUN npm install express
+
+COPY . .
+
+EXPOSE 8080
 
 CMD ["node", "notes.js"]
