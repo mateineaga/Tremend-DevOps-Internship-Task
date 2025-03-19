@@ -8,7 +8,7 @@ For this task I chose the javascript application, which is a simple note manager
 
 ## 2. Create a Dockerfile
 
-Dockerfile created on a node base image, bullseye being the most stable and easy to set up. The internal port of the application 3000 is exposed and mapped to port 8080.
+Dockerfile created on a node base image, bullseye being the most stable and easy to set up. The internal port of the application 8080 is exposed and mapped to external port 8080.
 
 ```
 FROM node:19-bullseye
