@@ -39,9 +39,12 @@ jobs:
 
     - name: Testing the app deployed on our minikube cluster
       run: |
+         echo "Listing pods"
          kubectl get pods
+         echo "Listing services"
+         kubectl get svc
          echo "Testing the service:"
-         curl localhost:8080
+         curl $(minikube service nodejs-app --url)
 
     - name: Tagging the image & pushing the image
       run: |

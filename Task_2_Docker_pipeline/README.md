@@ -37,7 +37,7 @@ services:
   tremend:
     build: .
     ports:
-      - "8080:3000"
+      - "8080:8080"
 ```
 
 
@@ -48,7 +48,7 @@ REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
 ubuntu          latest    a04dc4851cbc   7 weeks ago      78.1MB
 vagrant@ubuntu-jammy:~/Internship-Resources-2025/2-app$ docker ps
 CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                         NAMES
-9565c683b43f   2-app-tremend   "docker-entrypoint.s…"   45 seconds ago   Up 44 seconds   0.0.0.0:8080->3000/tcp, [::]:8080->3000/tcp   2-app-tremend-1
+9565c683b43f   2-app-tremend   "docker-entrypoint.s…"   45 seconds ago   Up 44 seconds   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp   2-app-tremend-1
 ```
 
 Verification that the app is working properly
