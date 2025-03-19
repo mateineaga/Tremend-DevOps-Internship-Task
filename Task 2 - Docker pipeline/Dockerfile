@@ -2,7 +2,7 @@ FROM node:19-bullseye
 
 WORKDIR /app
 
-COPY . ./
+COPY package*.json ./
 
 EXPOSE 8080
 
