@@ -66,7 +66,7 @@ For proving the goal of this task, the file containing environment variables was
 
 ## Personal bonus
 
-I completed an additional exercise. I deployed the Docker image created within the pipeline to a Kubernetes cluster hosted on Minikube. The application is hosted in a deployment consisting of a single replica, which is attached to a NodePort service to make it accessible from outside the local cluster.
+I completed an additional exercise. I deployed the Docker image created within the pipeline to a Kubernetes cluster hosted on Minikube. The application is hosted in a deployment consisting of a single replica, which is attached to a NodePort service to make it accessible from outside the local cluster. The file used to deploy this configuration is "k8s-node-app.yaml"
 
 ![Local testing on minikube cluster](results/k8s.png)
 

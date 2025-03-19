@@ -64,7 +64,7 @@ SELECT COUNT(*) FROM employees;
 
 ### 3.2 Retrieve the names of employees in a specific department by user input
 
-I created a script on my local, which prompts for user input and executes a command into docker container created earlier.
+I created a local script called "names_of_employees.sh", which prompts for user input and executes a command into docker container created earlier.
 
 ```
 #!/bin/bash
@@ -79,6 +79,8 @@ WHERE department_id = (SELECT department_id FROM departments WHERE department_na
 ```
 
 ### 3.3 Calculate the highest and lowest salaries per department. 
+
+To ensure easier setup for next steps from this tasks and for an easier use, I created a local script called "max_min_salaries.sh", which shows up the maximum and the minimum salary from each department. As the previous query, this query is executed into the docker container.
 
 ```
 #!/bin/bash
@@ -215,8 +217,10 @@ echo "" >> log.txt
 echo "######" >> log.txt
 ```
 
+The output have been saved to a logfile called "log.txt".
+
 ---
 
 ## Bonus
 
-The volume have been mounted since the beginning, from local directory /home/vagrant/pgdata to /var/lib/postgresql/data, this being the directory where all the databases get stored.
+The volume have been mounted since the beginning, from local directory /home/vagrant/pgdata to /var/lib/postgresql/data, this being the directory where all the databases get stored. For the second one, the automated database, the host volume is /home/vagrant/pgdata2.
