@@ -28,7 +28,7 @@ jobs:
     
     - name: Deploy to minikube
       run: |
-        kubectl apply -f k8s-node-app.yaml
+        kubectl apply -f "./Task_2_Docker_pipeline/k8s-node-app.yaml"
         POD_STATUS=$(kubectl get pods -n default -o jsonpath="{.items[0].status.phase}")
         while [ "$POD_STATUS" != "Running" ]; do
           echo "Waiting for pod to become Running..."
