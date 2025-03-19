@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: 3-db-db-1
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: ituser
+      POSTGRES_DB: company_db
+    volumes:
+      - /home/vagrant/pgdata:/var/lib/postgresql/data
+
+  db2:
+    image: postgres
+    restart: always
+    container_name: 3-db-db-2
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - /home/vagrant/pgdata2:/var/lib/postgresql/data

@@ -56,8 +56,20 @@ Verification that the app is working properly on local
 
 ---
 
+## Bonus
+
+Environment variables (PORT) was passed to file ".env" to be used in the "notes.js" script. To do so, I added a package "dotenv" to the server, just to be able to import the environment variables passed.
+
+For proving the goal of this task, the file containing environment variables was not hidden. Otherwise, I would add ".env" to a file ".gitignore".
+
+---
+
 ## Personal bonus
 
 I completed an additional exercise. I deployed the Docker image created within the pipeline to a Kubernetes cluster hosted on Minikube. The application is hosted in a deployment consisting of a single replica, which is attached to a NodePort service to make it accessible from outside the local cluster.
 
 ![Local testing on minikube cluster](results/k8s.png)
+
+![Pipeline overview](results/pipeline.png)
+
+![Images hashes added to the dockerhub registry](results/hashes.png)
