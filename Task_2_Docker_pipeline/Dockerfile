@@ -2,13 +2,13 @@ FROM node:19-bullseye
 
 WORKDIR /usr/src/app
 
-COPY "Task 2 - Docker pipeline/package.json" ./
+COPY "Task_2_Docker_pipeline/package.json" ./
 
 RUN npm install
 
 RUN npm install express
 
-COPY "Task 2 - Docker pipeline/." ./
+COPY "Task_2_Docker_pipeline/." ./
 
 EXPOSE 8080
 
