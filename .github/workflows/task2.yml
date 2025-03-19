@@ -46,8 +46,16 @@ jobs:
          echo "Testing the service:"
          curl $(minikube service nodejs-app --url)
 
+    - name: Debugging Docker images
+      run: |
+          eval $(minikube -p minikube docker-env)
+          echo "Listing available images..."
+          docker images
+
+
     - name: Tagging the image & pushing the image
       run: |
+          eval $(minikube -p minikube docker-env)
           docker tag tremend-task2 mateineaga10/tremend-task2:${GITHUB_SHA}
           echo -n "Verifying the tagged images:"
           docker images   

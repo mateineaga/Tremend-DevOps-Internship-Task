@@ -51,7 +51,7 @@ CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS 
 9565c683b43f   2-app-tremend   "docker-entrypoint.s…"   45 seconds ago   Up 44 seconds   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp   2-app-tremend-1
 ```
 
-Verification that the app is working properly
+Verification that the app is working properly on local
 ![Notes API test](results/notes_api.png)
 
 ---
