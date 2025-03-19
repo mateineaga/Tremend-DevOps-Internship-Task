@@ -7,26 +7,29 @@ Verify:
     ```sh
     vagrant@ubuntu-jammy:~$ dig cloudflare.com
 
-    ; <<>> DiG 9.18.30-0ubuntu0.22.04.2-Ubuntu <<>> cloudflare.com
-    ;; global options: +cmd
-    ;; Got answer:
-    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 20029
-    ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+```
+vagrant@ubuntu-jammy:~$ dig cloudflare.com
 
-    ;; OPT PSEUDOSECTION:
-    ; EDNS: version: 0, flags:; udp: 65494
-    ;; QUESTION SECTION:
-    ;cloudflare.com.                        IN      A
+; <<>> DiG 9.18.30-0ubuntu0.22.04.2-Ubuntu <<>> cloudflare.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 20029
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
 
-    ;; ANSWER SECTION:
-    cloudflare.com.         297     IN      A       104.16.132.229
-    cloudflare.com.         297     IN      A       104.16.133.229
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;cloudflare.com.                        IN      A
 
-    ;; Query time: 15 msec
-    ;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
-    ;; WHEN: Tue Mar 18 21:00:55 UTC 2025
-    ;; MSG SIZE  rcvd: 75
-    ```
+;; ANSWER SECTION:
+cloudflare.com.         297     IN      A       104.16.132.229
+cloudflare.com.         297     IN      A       104.16.133.229
+
+;; Query time: 15 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Tue Mar 18 21:00:55 UTC 2025
+;; MSG SIZE  rcvd: 75
+```
 
 
 2) Map IP address 8.8.8.8 to hostname google-dns
@@ -189,3 +192,53 @@ Personal bonus:
     ```
     config.vm.network "forwarded_port", guest: 8080, host: 80
     ```
+
+
+# Linux Essentials - DevOps Internship Project  
+
+## Task 1 - Linux Essentials  
+
+Acest document descrie pașii urmați pentru finalizarea părții de Linux a proiectului de internship DevOps.  
+
+---
+
+## 1. Lookup the Public IP of cloudflare.com  
+
+### Approach Used  
+Am folosit comanda `dig` pentru a găsi adresele IP asociate cu `cloudflare.com`:  
+
+```sh
+dig cloudflare.com
+```
+
+### Verification  
+```
+vagrant@ubuntu-jammy:~$ dig cloudflare.com
+
+; <<>> DiG 9.18.30-0ubuntu0.22.04.2-Ubuntu <<>> cloudflare.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 20029
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;cloudflare.com.                        IN      A
+
+;; ANSWER SECTION:
+cloudflare.com.         297     IN      A       104.16.132.229
+cloudflare.com.         297     IN      A       104.16.133.229
+
+;; Query time: 15 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Tue Mar 18 21:00:55 UTC 2025
+;; MSG SIZE  rcvd: 75
+```
+
+---
+
+## 2. Map IP Address 8.8.8.8 to Hostname google-dns  
+
+### Approach Used  
+Am adăugat următoarea linie în fișierul `/etc
