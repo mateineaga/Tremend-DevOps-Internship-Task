@@ -51,20 +51,22 @@ Verify:
 ## 3. Check if the DNS Port is Open for google-dns
 Approach used: I used the command "nc -zv google-dns 53", which returned the message:
 
+```
 Connection to google-dns (8.8.8.8) 53 port [tcp/domain] succeeded!
+```
 
 ---
 
 ## 4. Modify the System to Use Google’s Public DNS:
 ### 4.1. Change the nameserver to 8.8.8.8 instead of the default local configuration.
 
-    Approach used: I modified the line from file /etc/resolv.conf from "localhost 127.0.0.53" to "8.8.8.8".
+Approach used: I modified the line from file /etc/resolv.conf from "localhost 127.0.0.53" to "8.8.8.8".
 
     
 
 ### 4.2. Perform another public IP lookup for cloudflare.com and compare the results.
 
-    Results: 
+Results: 
 
 ```sh
     root@ubuntu-jammy:/etc/bind# root@ubuntu-jammy:/etc/bind# dig cloudflare.com
@@ -196,3 +198,5 @@ I did this task on a ubuntu VM, hosted on vagrant. To allow access from localhos
 ```
 config.vm.network "forwarded_port", guest: 8080, host: 80
 ```
+
+
