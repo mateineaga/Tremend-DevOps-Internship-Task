@@ -18,5 +18,6 @@ spec:
       containers:
       - name: nodejs-app
         image: "tremend-task2:latest"
+        imagePullPolicy: Never
         ports:
           - containerPort: 8080

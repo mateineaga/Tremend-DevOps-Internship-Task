@@ -35,7 +35,7 @@ jobs:
           sleep 10
           POD_STATUS=$(kubectl get pods -n default -o jsonpath="{.items[0].status.phase}")
         done
-        echo "Pod is now Running!" 
+        echo "Pod is now Running!"
 
     - name: Testing the app deployed on our minikube cluster
       run: |
