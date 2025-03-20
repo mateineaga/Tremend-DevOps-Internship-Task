@@ -62,6 +62,15 @@ To find the number of employees we use the command:
 SELECT COUNT(*) FROM employees;
 ```
 
+Output:
+
+```
+ count
+-------
+   106
+(1 row)
+```
+
 ### 3.2 Retrieve the names of employees in a specific department by user input
 
 I created a local script called "names_of_employees.sh", which prompts for user input and executes a command into docker container created earlier.
@@ -76,6 +85,24 @@ SELECT first_name, last_name
 FROM employees
 WHERE department_id = (SELECT department_id FROM departments WHERE department_name = '$dept');
 "
+```
+
+Output:
+
+```
+ first_name | last_name
+------------+-----------
+ Alice      | Smith
+ George     | Anderson
+ Mia        | Rodriguez
+ Ethan      | Harris
+ Sophia     | King
+ Alice      | Smith
+ George     | Anderson
+ Mia        | Rodriguez
+ Ethan      | Harris
+ Sophia     | King
+(10 rows)
 ```
 
 ### 3.3 Calculate the highest and lowest salaries per department. 
@@ -95,6 +122,22 @@ JOIN departments d ON e.department_id = d.department_id
 GROUP BY d.department_name
 ORDER BY d.department_name;
 "
+```
+
+Output:
+
+```
+ department_name  | highest_salary | lowest_salary
+------------------+----------------+---------------
+ Customer Support |      119000.00 |     109000.00
+ Finance          |       76000.00 |      62000.00
+ HR               |       60000.00 |      50000.00
+ IT               |       94000.00 |      67000.00
+ Legal            |      143000.00 |      91000.00
+ Marketing        |       91000.00 |      78000.00
+ Operations       |      131000.00 |     121000.00
+ Sales            |      107000.00 |      93000.00
+(8 rows)
 ```
 
 ## 4. Dump the dataset into a file
