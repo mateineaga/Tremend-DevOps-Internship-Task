@@ -1,4 +1,4 @@
-## Task 2 - Dockerized application CI/CD
+## Task 3 - Postgres queries
 
 ## 1. Pull and run a PostgreSQL container
 
